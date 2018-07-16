@@ -25,7 +25,7 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar dark fixed app style="height: 84px;padding-top: 8px">
+    <v-toolbar dark fixed app style="height: 84px;padding-top: 10px">
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-btn icon large>
         <v-avatar size="32px" tile>
@@ -75,6 +75,20 @@ export default {
   data () {
     return {
       drawer: null
+    }
+  },
+  mounted () {
+    console.log(this.$vuetify.breakpoint)
+  },
+  computed: {
+    imageHeight () {
+      switch (this.$vuetify.breakpoint.name) {
+        case 'xs': return '220px'
+        case 'sm': return '400px'
+        case 'md': return '500px'
+        case 'lg': return '600px'
+        case 'xl': return '800px'
+      }
     }
   },
   methods:{
